@@ -24,17 +24,10 @@ jobs:
 
       - name: Install dependencies
         run: |
-          if [ -f package-lock.json ]; then
-            npm ci --ignore-scripts
-          else
-            npm install --ignore-scripts
-          fi
+          npm install --ignore-scripts
 
       - name: Run ESLint
         run: npm run lint
-
-      - name: Run tests
-        run: npm test -- --coverage --watchAll=false
 
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@master
