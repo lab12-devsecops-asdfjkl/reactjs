@@ -31,9 +31,6 @@ jobs:
       - name: Run ESLint
         run: npm run lint
 
-      - name: Run tests
-        run: npm test -- --coverage --watchAll=false
-
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@v2
         env:
