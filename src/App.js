@@ -25,7 +25,7 @@ function App() {
         const dbEntries = Object.entries(response.data.database);
         const dbConnections = dbEntries
           .filter(([key, value]) => key !== 'version' && typeof value === 'string' && value.includes('Connected'))
-          .map(([key, value]) => {
+          .map(([key]) => {
             // Normalize database names
             const dbName = key.replace('postgresql', 'postgres').replace('mysql', 'mysql');
             return dbName;
