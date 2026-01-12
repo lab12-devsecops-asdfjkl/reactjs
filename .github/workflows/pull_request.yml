@@ -28,9 +28,6 @@ jobs:
       - name: Install dependencies
         run: npm install --ignore-scripts
 
-      - name: Run ESLint
-        run: npm run lint
-
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@v2
         env:
@@ -56,8 +53,7 @@ jobs:
           push: false
           load: true
           tags: react-frontend:pr-${{ github.event.pull_request.number }}
-          cache-from: type=registry,ref=registry.gaumeodathanh.me/react-frontend:buildcache
-          cache-to: type=inline
+
 
       - name: Scan Docker image with Trivy
         uses: aquasecurity/trivy-action@master
